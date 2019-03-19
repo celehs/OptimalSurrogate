@@ -2,7 +2,7 @@
 
 by Xuan Wang, Layla Parast, Lu Tian, and Tianxi Cai. 
 
-NOTE: This paper has been submitted to _Biometrika_ and is currently under revision.
+**NOTE**: This paper has been submitted to _Biometrika_ and is currently under revision.
 
 For illustration, two data examples are provided
 
