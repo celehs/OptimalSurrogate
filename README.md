@@ -10,8 +10,8 @@ For illustration, two data examples are provided
 
 Some code optimization has been performed to make the R programs run faster (see `code-ming`). 
 
-- **continuous** example (elapsed time in seconds): 15.934 (`dataexample-ming.Rout`) vs. 43.576 (`dataexample-xuan.Rout`)
+- **continuous** example: 15.934 seconds (`dataexample-ming.Rout`) vs. 43.576 seconds (`dataexample-xuan.Rout`)
 
-- **discrete** example (elapsed time in seconds): 10.220 (`dataexample_d-ming.Rout`) vs. 29.165 (`dataexample_d-xuan.Rout`)
+- **discrete** example: 10.220 seconds (`dataexample_d-ming.Rout`) vs. 29.165 seconds (`dataexample_d-xuan.Rout`)
 
 An R package and a documentation website are currently under development and will be released here soon. 
