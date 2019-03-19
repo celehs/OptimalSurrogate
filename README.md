@@ -8,4 +8,10 @@ For illustration, two data examples are provided
 
 - `data/dataexample_d.RData` with **discrete** surrogate marker
 
-Some code optimization has been performed to make the R programs run faster (see `code-ming`). An R package and documentation are currently under development and will be released here soon. 
+Some code optimization has been performed to make the R programs run faster (see `code-ming`). 
+
+- **continuous** example: 15.934 seconds in `dataexample-ming.Rout` vs. 43.576 seconds in `dataexample-xuan.Rout`
+
+- **discrete** example: 10.220 seconds `dataexample_d-ming.Rout` vs. 29.165 seconds `dataexample_d-xuan.Rout`
+
+An R package and a documentation website are currently under development and will be released here soon. 
