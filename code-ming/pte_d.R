@@ -1,3 +1,9 @@
+# sob: DISCRETE surrogate marker
+# yob: outcome of interest (continuous or binary)
+# aob: treatment assignment (1: treatment; 0: control)
+# var: whether variance should be calculated (TRUE/FALSE)
+# conf.int: whether 95% confidence intervals should be calculated (TRUE/FALSE)
+# rep: number of resampling replications (default is 500)
 pte_d <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
   pte.fun <- function(v, sob, yob, aob, n, kern, kern2, s) {
     v <- as.numeric(v)
