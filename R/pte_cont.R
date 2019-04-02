@@ -6,7 +6,7 @@
 #' @param conf.int whether 95\% confidence intervals should be calculated (TRUE/FALSE)
 #' @param rep number of resampling replications (default is 500)
 #' @export
-pte <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
+pte_cont <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
   VTM <- function(vc, dm) matrix(vc, ncol = length(vc), nrow = dm, byrow = TRUE)
   Kern.FUN <- function(zz, zi, bw) dnorm((VTM(zz, length(zi)) - zi) / bw) / bw
   pte.fun <- function(v, sob, yob, aob, n, kern, kern2, nn, s, step) {

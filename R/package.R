@@ -2,11 +2,11 @@
 NULL
 
 #' @docType data
-#' @name dataexample
+#' @name marker_cont
 #' @title Simulated data with continuous surrogate marker
 NULL
 
 #' @docType data
-#' @name dataexample_d
+#' @name marker_disc
 #' @title Simulated data with discrete surrogate marker
 NULL

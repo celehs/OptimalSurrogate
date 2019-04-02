@@ -96,8 +96,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 
 
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">library</span>(OptimalSurrogate)</code></pre></div>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">data &lt;-<span class="st"> </span>dataexample_d
-<span class="kw">head</span>(data)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">head</span>(marker_disc)</code></pre></div>
 <pre><code>##   sob yob aob
 ## 1   4   1   1
 ## 2   3   1   0
@@ -105,7 +104,7 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 4   2   0   1
 ## 5   2   0   0
 ## 6   6   1   1</code></pre>
-<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(data)</code></pre></div>
+<div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">tail</span>(marker_disc)</code></pre></div>
 <pre><code>##      sob yob aob
 ## 995    2   1   0
 ## 996    3   1   1
@@ -114,11 +113,13 @@ code > span.in { color: #60a0b0; font-weight: bold; font-style: italic; } /* Inf
 ## 999    5   0   1
 ## 1000   4   1   1</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r"><span class="kw">set.seed</span>(<span class="dv">123</span>)
-<span class="kw">system.time</span>(out &lt;-<span class="st"> </span><span class="kw">pte_d</span>(
-  <span class="dt">sob =</span> data<span class="op">$</span>sob, <span class="dt">yob =</span> data<span class="op">$</span>yob, <span class="dt">aob =</span> data<span class="op">$</span>aob, 
+<span class="kw">system.time</span>(out &lt;-<span class="st"> </span><span class="kw">pte_disc</span>(
+  <span class="dt">sob =</span> marker_disc<span class="op">$</span>sob, 
+  <span class="dt">yob =</span> marker_disc<span class="op">$</span>yob, 
+  <span class="dt">aob =</span> marker_disc<span class="op">$</span>aob, 
   <span class="dt">var =</span> <span class="ot">TRUE</span>, <span class="dt">conf.int =</span> <span class="ot">TRUE</span>, <span class="dt">rep =</span> <span class="dv">1000</span>))</code></pre></div>
 <pre><code>##    user  system elapsed 
-##   6.930   0.910   7.865</code></pre>
+##   6.886   0.909   7.811</code></pre>
 <div class="sourceCode"><pre class="sourceCode r"><code class="sourceCode r">out</code></pre></div>
 <pre><code>## $delta
 ## [1] -0.2001792

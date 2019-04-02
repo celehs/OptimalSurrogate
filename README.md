@@ -15,7 +15,7 @@ devtools::install_github("celehs/OptimalSurrogate")
 
 Two data examples are provided:
 
-- `dataexample` with **continuous** surrogate marker
+- `marker_cont` with **continuous** surrogate marker
 
-- `dataexample_d` with **discrete** surrogate marker
+- `marker_disc` with **discrete** surrogate marker
 
