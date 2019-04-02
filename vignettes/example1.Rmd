@@ -1,0 +1,27 @@
+---
+title: "Example 1: Continuous Surrogate Marker"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{OptimalSurrogate}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library(OptimalSurrogate)
+```
+
+```{r}
+data <- dataexample
+head(data)
+tail(data)
+```
+
+```{r}
+set.seed(123)
+system.time(out <- pte(
+  sob = data$sob, yob = data$yob, aob = data$aob, 
+  var = TRUE, conf.int = TRUE, rep = 1000))
+out
+```
+

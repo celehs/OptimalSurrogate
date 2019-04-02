@@ -1,0 +1,27 @@
+---
+title: "Example 2: Discrete Surrogate Marker"
+output: rmarkdown::html_vignette
+vignette: >
+  %\VignetteIndexEntry{OptimalSurrogate}
+  %\VignetteEngine{knitr::rmarkdown}
+  %\VignetteEncoding{UTF-8}
+---
+
+```{r}
+library(OptimalSurrogate)
+```
+
+```{r}
+data <- dataexample_d
+head(data)
+tail(data)
+```
+
+```{r}
+set.seed(123)
+system.time(out <- pte_d(
+  sob = data$sob, yob = data$yob, aob = data$aob, 
+  var = TRUE, conf.int = TRUE, rep = 1000))
+out
+```
+
