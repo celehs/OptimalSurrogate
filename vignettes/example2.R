@@ -2,6 +2,7 @@
 library(OptimalSurrogate)
 
 ## ------------------------------------------------------------------------
+data(marker_disc)
 head(marker_disc)
 tail(marker_disc)
 
