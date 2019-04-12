@@ -11,10 +11,15 @@ vignette: >
 library(OptimalSurrogate)
 ```
 
+Load data with a discrete surrogate marker. Take a look at first few and last few rows. Note that sob indicates the surrogate marker value, yob is the value of the primary outcome, and aob is the treatment indicator (0 or 1).
+
 ```{r}
+data(marker_disc)
 head(marker_disc)
 tail(marker_disc)
 ```
+
+Run function pte_disc which is the main function for a discrete surrogate marker. You must indicate which variable is the surrogate, primary outcome and treatment, whether standard error estimates are desired (var = TRUE), whether confidence intervals are desired (conf.int=TRUE), and the number of replications to be used for resampling (used to estimate variance and confidence intervals; default is 500). 
 
 ```{r}
 set.seed(123)
@@ -25,3 +30,7 @@ system.time(out <- pte_disc(
   var = TRUE, conf.int = TRUE, rep = 1000))
 out
 ```
+
+The function outputs estimates (and standard error estimates and confidence intervals if indicated) of $\Delta$, the true treatment effect; $\Delta_{g_{opt}(S)}$, the treatment effect on the optimal transformation of the surrogate denoted as $g_{opt}(S)$; $PTE_1 =\Delta_{g_{opt}(S)} / \Delta$, a version of the proportion of treatment effect explained quantity based on the ratio between the treatment effect on the optimal transformation of the potential surrogate marker and the treatment effect on the primary outcome; and $PTE_2$ a version of the proportion of treatment effect explained quantity based on quantifying how well the individual-level treatment effect on the primary outcome can be approximated by the effect on the identified optimal transformation. 
+
+Here, the treatment effect is estimated to be -0.20, and the treatment effect on the optimal transformation of the surrogate is estimated to be -0.11. The resulting proportion of treatment effect estimates are 0.54 using $PTE_1$ and 0.30 using $PTE_2$. These results indicate that this is a poor surrogate marker in this setting.
