@@ -1,0 +1,18 @@
+template:
+  params:
+    bootswatch: spacelab
+
+navbar:
+  title: "OptimalSurrogate"
+  type: inverse
+  left:
+    - text: "Home"
+      href: index.html
+    - text: "Examples"
+      menu:
+      - text: "Continuous Surrogate Marker"
+        href: articles/example1.html
+      - text: "Discrete Surrogate Marker"
+        href: articles/example2.html
+    - text: "Reference"
+      href: reference/index.html

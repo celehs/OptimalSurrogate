@@ -5,7 +5,9 @@ Version: 0.1.0
 Authors@R: c(
     person("Xuan", "Wang", role = c("aut", "cre"), email = "wangxuan209@hotmail.com"),
     person("Layla", "Parast", role = "aut"),
-    person("Ming", "Yang", role = "aut")    
+    person("Ming", "Yang", role = "aut"),
+    person("Lu", "Tian", role = "aut"),  
+    person("Tianxi", "Cai", role = "aut")    
     )
 Description: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker.
 URL: https://github.com/celehs/OptimalSurrogate
