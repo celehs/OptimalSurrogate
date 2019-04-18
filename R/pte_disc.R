@@ -37,9 +37,9 @@ pte_disc <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
   kern <- sapply(1:length(s), function(kk) {as.numeric(sob == s[kk])})
   kern2 <- sapply(1:length(sob), function(kk) {as.numeric(sob == sob[kk])})
   out <- pte.fun(v = rep(1, n), sob, yob, aob, n, kern, kern2, s)
-  ans <- list("delta" = out[1], "delta.gs" = out[2], "pte1" = out[3], "pte2" = out[4])
-  ret <- out[1:4]
-  names(ret) <- c("delta", "delta.gs", "pte1", "pte2")
+  ans <- list("delta" = out[1], "delta.gs" = out[2], "pte1" = out[3], "pte2" = out[4], "gs" = out[-(1:4)])
+  ret <- out
+  names(ret) <- c("delta", "delta.gs", "pte1", "pte2", s)
   # resampling
   if (var) {
     v <- matrix(rexp(n * rep), nrow = n)
@@ -54,7 +54,8 @@ pte_disc <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
     temp2 <- g.s.re[4, ]
     ans$pte1.se <- sd(temp1[(temp1 < 1) * (temp1 > 0) > 0])
     ans$pte2.se <- sd(temp2[(temp2 < 1) * (temp2 > 0) > 0])
-    ret <- cbind(ret, c(ans$delta.se, ans$delta.gs.se, ans$pte1.se, ans$pte2.se))
+    ans$gs.se <- apply(g.s.re[-(1:4), ], 1, sd)
+    ret <- cbind(ret, c(ans$delta.se, ans$delta.gs.se, ans$pte1.se, ans$pte2.se, ans$gs.se))
     colnames(ret) <- c("est", "se")
     # confidence intervals
     if (conf.int) {
@@ -62,13 +63,16 @@ pte_disc <- function(sob, yob, aob, var = TRUE, conf.int = TRUE, rep = 500) {
       ans$conf.int.delta.gs <- ans$delta.gs + c(-1, 1) * 1.96 * ans$delta.gs.se
       ans$conf.int.pte1 <- ans$pte1 + c(-1, 1) * 1.96 * ans$pte1.se
       ans$conf.int.pte2 <- ans$pte2 + c(-1, 1) * 1.96 * ans$pte2.se
+      ans$conf.int.gs <- cbind(ans$gs - 1.96 * ans$gs.se,
+                               ans$gs + 1.96 * ans$gs.se)
       ret <- cbind(ret, rbind(
         ans$conf.int.delta,
         ans$conf.int.delta.gs,
         ans$conf.int.pte1,
-        ans$conf.int.pte2))
+        ans$conf.int.pte2,
+        ans$conf.int.gs))
       colnames(ret) <- c("est", "se", "lower", "upper")
     }
   }
-  ret
+  list(ret[1:4, ], ret[-(1:4), ])
 }

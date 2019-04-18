@@ -16,6 +16,9 @@ system.time(out <- pte_cont(
 out[[1]]
 
 ## ------------------------------------------------------------------------
-plot(as.numeric(rownames(out[[2]])), out[[2]][, "est"], type = "l", 
+x <- as.numeric(rownames(out[[2]]))
+plot(x, out[[2]][, "est"], ylim = range(out[[2]][, -2]), type = "l", 
      las = 1, xlab = "Surrogate Marker", ylab = "Optimal Transformation")
+  lines(x, out[[2]][, "lower"], lty = 2)
+  lines(x, out[[2]][, "upper"], lty = 2)
 
