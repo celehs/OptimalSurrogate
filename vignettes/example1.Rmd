@@ -28,7 +28,15 @@ system.time(out <- pte_cont(
   yob = marker_cont$yob, 
   aob = marker_cont$aob, 
   var = TRUE, conf.int = TRUE, rep = 1000))
-out
+out[[1]]
+```
+
+```{r}
+x <- as.numeric(rownames(out[[2]]))
+plot(x, out[[2]][, "est"], ylim = range(out[[2]][, -2]), type = "l", 
+     las = 1, xlab = "Surrogate Marker", ylab = "Optimal Transformation")
+  lines(x, out[[2]][, "lower"], lty = 2)
+  lines(x, out[[2]][, "upper"], lty = 2)
 ```
 
 The function outputs estimates (and standard error estimates and confidence intervals if indicated) of $\Delta$, the true treatment effect; $\Delta_{g_{opt}(S)}$, the treatment effect on the optimal transformation of the surrogate denoted as $g_{opt}(S)$; $PTE_1 =\Delta_{g_{opt}(S)} / \Delta$, a version of the proportion of treatment effect explained quantity based on the ratio between the treatment effect on the optimal transformation of the potential surrogate marker and the treatment effect on the primary outcome; and $PTE_2$ a version of the proportion of treatment effect explained quantity based on quantifying how well the individual-level treatment effect on the primary outcome can be approximated by the effect on the identified optimal transformation. 
