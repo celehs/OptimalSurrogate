@@ -2,7 +2,7 @@
 title: "Example 2: Discrete Surrogate Marker"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{OptimalSurrogate}
+  %\VignetteIndexEntry{example2}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---

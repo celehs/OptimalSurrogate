@@ -2,7 +2,7 @@
 title: "Example 1: Continuous Surrogate Marker"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{OptimalSurrogate}
+  %\VignetteIndexEntry{example1}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
