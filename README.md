@@ -1,6 +1,8 @@
 
 # OptimalSurrogate: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker
 
+[![CRAN](https://www.r-pkg.org/badges/version/OptimalSurrogate)](https://CRAN.R-project.org/package=OptimalSurrogate)
+
 ## Overview
 
 Provides functions to identify an optimal transformation of a potential
@@ -38,5 +40,5 @@ Two data examples are provided:
 
 Wang X, Parast L, Tian LU, Cai T. Model-free approach to quantifying the
 proportion of treatment effect explained by a surrogate marker.
-Biometrika. 2020 Mar;107(1):107-122. doi: 10.1093/biomet/asz065. Epub
-2019 Dec 24. PMID: 32587413; PMCID: PMC7315285.
+Biometrika. 2020 Mar;107(1):107-122.
+<https://doi.org/10.1093/biomet/asz065>
