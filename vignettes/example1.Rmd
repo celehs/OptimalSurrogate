@@ -2,7 +2,7 @@
 title: "Example 1: Continuous Surrogate Marker"
 output: rmarkdown::html_vignette
 vignette: >
-  %\VignetteIndexEntry{example1}
+  %\VignetteIndexEntry{Example 1: Continuous Surrogate Marker}
   %\VignetteEngine{knitr::rmarkdown}
   %\VignetteEncoding{UTF-8}
 ---
