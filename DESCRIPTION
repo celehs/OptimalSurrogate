@@ -1,13 +1,13 @@
 Package: OptimalSurrogate
 Title: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker
-Version: 0.1.1
+Version: 0.1.1.9000
 Authors@R: c(
     person("Xuan", "Wang", role = c("aut", "cre"), email = "wangxuan209@hotmail.com"),
     person("Layla", "Parast", role = "aut"),
+    person("Lu", "Tian", role = "aut"),
     person("Ming", "Yang", role = "aut"),
-    person("Lu", "Tian", role = "aut"),  
-    person("Tianxi", "Cai", role = "aut"),
-    person(family = "PARSE LTD", role = "aut")
+    person("CELEHS", "Lab", role = "aut"),
+    person("PARSE", "Health", role = "aut")
     )
 Description: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker.
 URL: https://celehs.github.io/OptimalSurrogate
@@ -15,6 +15,6 @@ BugReports: https://github.com/celehs/OptimalSurrogate/issues
 VignetteBuilder: knitr    
 License: GPL-3
 Encoding: UTF-8
-RoxygenNote: 7.1.1
+RoxygenNote: 7.3.2
 Depends: R (>= 3.0)
 LazyData: true

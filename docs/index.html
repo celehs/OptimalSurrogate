@@ -6,7 +6,7 @@
 <meta http-equiv="X-UA-Compatible" content="IE=edge">
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker • OptimalSurrogate</title>
-<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.4.1/jquery.min.js" integrity="sha256-CSXorXvZcTkaix6Yvo6HppcZGetbYMGWSFlBw8HfCJo=" crossorigin="anonymous"></script><!-- Bootstrap --><link href="https://cdnjs.cloudflare.com/ajax/libs/bootswatch/3.4.0/cosmo/bootstrap.min.css" rel="stylesheet" crossorigin="anonymous">
+<!-- jquery --><script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.7.1/jquery.min.js" integrity="sha512-v2CJ7UaYy4JwqLDIrZUI/4hqeoQieOmAZNXBeQyjo21dadnwR+8ZaIJVT8EE2iyI61OV8e6M8PP2/4hpQINQ/g==" crossorigin="anonymous" referrerpolicy="no-referrer"></script><!-- Bootstrap --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/css/bootstrap.min.css" integrity="sha256-bZLfwXAP04zRMK2BjiO8iu9pf4FbLqX6zitd+tIvLhE=" crossorigin="anonymous">
 <script src="https://cdnjs.cloudflare.com/ajax/libs/twitter-bootstrap/3.4.1/js/bootstrap.min.js" integrity="sha256-nuL8/2cJ5NDSSwnKD8VqreErSWHtnEP9E7AySL+1ev4=" crossorigin="anonymous"></script><!-- bootstrap-toc --><link rel="stylesheet" href="bootstrap-toc.css">
 <script src="bootstrap-toc.js"></script><!-- Font Awesome icons --><link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/all.min.css" integrity="sha256-mmgLkCYLUQbXn0B1SRqzHar6dCnv9oZFPEC1g1cwlkk=" crossorigin="anonymous">
 <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/5.12.1/css/v4-shims.min.css" integrity="sha256-wZjR52fzng1pJHwx4aV2AO3yyTOXrcDW7jBpJtTwVxw=" crossorigin="anonymous">
@@ -19,8 +19,10 @@
 <![endif]-->
 </head>
 <body data-spy="scroll" data-target="#toc">
+
+
     <div class="container template-home">
-      <header><div class="navbar navbar-inverse navbar-fixed-top" role="navigation">
+      <header><div class="navbar navbar-default navbar-fixed-top" role="navigation">
   <div class="container">
     <div class="navbar-header">
       <button type="button" class="navbar-toggle collapsed" data-toggle="collapse" data-target="#navbar" aria-expanded="false">
@@ -31,7 +33,7 @@
       </button>
       <span class="navbar-brand">
         <a class="navbar-link" href="index.html">OptimalSurrogate</a>
-        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="Released version">0.1.1</span>
+        <span class="version label label-default" data-toggle="tooltip" data-placement="bottom" title="">0.1.1.9000</span>
       </span>
     </div>
 
@@ -39,14 +41,14 @@
       <ul class="nav navbar-nav">
 <li>
   <a href="index.html">
-    <span class="fas fa-home"></span>
-     
+    <span class="fa fa-home"></span>
+
   </a>
 </li>
 <li class="dropdown">
-  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" aria-expanded="false">
+  <a href="#" class="dropdown-toggle" data-toggle="dropdown" role="button" data-bs-toggle="dropdown" aria-expanded="false">
     Examples
-     
+
     <span class="caret"></span>
   </a>
   <ul class="dropdown-menu" role="menu">
@@ -64,7 +66,10 @@
       </ul>
 <ul class="nav navbar-nav navbar-right">
 <li>
-  <a href="https::/celehs.github.io">CELEHS Software</a>
+  <a href="https://github.com/celehs/OptimalSurrogate/" class="external-link">
+    <span class="fab fa-github fa-lg"></span>
+
+  </a>
 </li>
       </ul>
 </div>
@@ -74,90 +79,99 @@
 </div>
 <!--/.navbar -->
 
-      
+
 
       </header><div class="row">
   <div class="contents col-md-9">
-<div id="optimalsurrogate-model-free-approach-to-quantifying-the-proportion-of-treatment-effect-explained-by-a-surrogate-marker" class="section level1">
-<div class="page-header"><h1 class="hasAnchor">
-<a href="#optimalsurrogate-model-free-approach-to-quantifying-the-proportion-of-treatment-effect-explained-by-a-surrogate-marker" class="anchor"></a>OptimalSurrogate: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker</h1></div>
-
-<div id="overview" class="section level2">
-<h2 class="hasAnchor">
-<a href="#overview" class="anchor"></a>Overview</h2>
+<div class="section level1">
+<div class="page-header"><h1 id="optimalsurrogate-model-free-approach-to-quantifying-the-proportion-of-treatment-effect-explained-by-a-surrogate-marker">OptimalSurrogate: Model Free Approach to Quantifying the Proportion of Treatment Effect Explained by a Surrogate Marker<a class="anchor" aria-label="anchor" href="#optimalsurrogate-model-free-approach-to-quantifying-the-proportion-of-treatment-effect-explained-by-a-surrogate-marker"></a>
+</h1></div>
+<p><a href="https://CRAN.R-project.org/package=OptimalSurrogate" class="external-link"><img src="https://www.r-pkg.org/badges/version/OptimalSurrogate" alt="CRAN"></a></p>
+<div class="section level2">
+<h2 id="overview">Overview<a class="anchor" aria-label="anchor" href="#overview"></a>
+</h2>
 <p>Provides functions to identify an optimal transformation of a potential surrogate marker such that the proportion of the treatment effect on a primary outcome can be inferred based on the treatment effect on this identified optimal transformation and functions to estimate the proportion of treatment effect explained by this optimal transformation. The potential surrogate may be continuous or discrete. Two different estimates of the proportion of treatment effect explained are available, one which is based on the ratio between the treatment effect on the optimal transformation of the potential surrogate marker and the treatment effect on the primary outcome and a second estimate which is based on quantifying how well the individual-level treatment effect on the primary outcome can be approximated by the effect on the identified optimal transformation. These estimates are based on model-free definitions of the proportion of treatment effect explained and thus, do not require any correct model specification.</p>
 </div>
-<div id="installation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#installation" class="anchor"></a>Installation</h2>
+<div class="section level2">
+<h2 id="installation">Installation<a class="anchor" aria-label="anchor" href="#installation"></a>
+</h2>
 <p>Install development version from GitHub:</p>
-<div class="sourceCode" id="cb1"><pre class="downlit">
-<span class="co"># install.packages("remotes")</span>
-<span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html">install_github</a></span><span class="op">(</span><span class="st">"celehs/OptimalSurrogate"</span><span class="op">)</span></pre></div>
+<div class="sourceCode" id="cb1"><pre class="downlit sourceCode r">
+<code class="sourceCode R"><span><span class="co"># install.packages("remotes")</span></span>
+<span><span class="fu">remotes</span><span class="fu">::</span><span class="fu"><a href="https://remotes.r-lib.org/reference/install_github.html" class="external-link">install_github</a></span><span class="op">(</span><span class="st">"celehs/OptimalSurrogate"</span><span class="op">)</span></span></code></pre></div>
 <p>Two data examples are provided:</p>
 <ul>
 <li><p><code>marker_cont</code> with <strong>continuous</strong> surrogate marker</p></li>
 <li><p><code>marker_disc</code> with <strong>discrete</strong> surrogate marker</p></li>
 </ul>
 </div>
-<div id="citation" class="section level2">
-<h2 class="hasAnchor">
-<a href="#citation" class="anchor"></a>Citation</h2>
-<p>Wang X, Parast L, Tian LU, Cai T. Model-free approach to quantifying the proportion of treatment effect explained by a surrogate marker. Biometrika. 2020 Mar;107(1):107-122. <a href="https://doi.org/10.1093/biomet/asz065" class="uri">https://doi.org/10.1093/biomet/asz065</a></p>
+<div class="section level2">
+<h2 id="citation">Citation<a class="anchor" aria-label="anchor" href="#citation"></a>
+</h2>
+<p>Wang X, Parast L, Tian LU, Cai T. Model-free approach to quantifying the proportion of treatment effect explained by a surrogate marker. Biometrika. 2020 Mar;107(1):107-122. <a href="https://doi.org/10.1093/biomet/asz065" class="external-link uri">https://doi.org/10.1093/biomet/asz065</a></p>
 </div>
 </div>
   </div>
 
   <div class="col-md-3 hidden-xs hidden-sm" id="pkgdown-sidebar">
     <div class="links">
-<h2>Links</h2>
+<h2 data-toc-skip>Links</h2>
 <ul class="list-unstyled">
-<li>Browse source code at <br><a href="https://github.com/celehs/OptimalSurrogate/">https://​github.com/​celehs/​OptimalSurrogate/​</a>
-</li>
-<li>Report a bug at <br><a href="https://github.com/celehs/OptimalSurrogate/issues">https://​github.com/​celehs/​OptimalSurrogate/​issues</a>
-</li>
-</ul>
-</div>
-<div class="license">
-<h2>License</h2>
-<ul class="list-unstyled">
-<li><a href="https://www.r-project.org/Licenses/GPL-3">GPL-3</a></li>
-</ul>
-</div>
-<div class="developers">
-<h2>Developers</h2>
-<ul class="list-unstyled">
-<li>Xuan Wang <br><small class="roles"> Author, maintainer </small>  </li>
-<li>Layla Parast <br><small class="roles"> Author </small>  </li>
-<li>Ming Yang <br><small class="roles"> Author </small>  </li>
-<li>Lu Tian <br><small class="roles"> Author </small>  </li>
-<li>Tianxi Cai <br><small class="roles"> Author </small>  </li>
-<li> PARSE LTD <br><small class="roles"> Author </small>  </li>
+<li><a href="https://cloud.r-project.org/package=OptimalSurrogate" class="external-link">View on CRAN</a></li>
+<li><a href="https://github.com/celehs/OptimalSurrogate/" class="external-link">Browse source code</a></li>
+<li><a href="https://github.com/celehs/OptimalSurrogate/issues" class="external-link">Report a bug</a></li>
 </ul>
 </div>
 
-  <div class="dev-status">
-<h2>Dev status</h2>
+<div class="license">
+<h2 data-toc-skip>License</h2>
 <ul class="list-unstyled">
-<li><a href="https://CRAN.R-project.org/package=OptimalSurrogate"><img src="https://www.r-pkg.org/badges/version/OptimalSurrogate" alt="CRAN"></a></li>
+<li><a href="https://www.r-project.org/Licenses/GPL-3" class="external-link">GPL-3</a></li>
 </ul>
 </div>
+
+
+<div class="citation">
+<h2 data-toc-skip>Citation</h2>
+<ul class="list-unstyled">
+<li><a href="authors.html#citation">Citing OptimalSurrogate</a></li>
+</ul>
 </div>
+
+<div class="developers">
+<h2 data-toc-skip>Developers</h2>
+<ul class="list-unstyled">
+<li>Xuan Wang <br><small class="roles"> Author, maintainer </small>  </li>
+<li>Layla Parast <br><small class="roles"> Author </small>  </li>
+<li>Lu Tian <br><small class="roles"> Author </small>  </li>
+<li>Ming Yang <br><small class="roles"> Author </small>  </li>
+<li>CELEHS Lab <br><small class="roles"> Author </small>  </li>
+<li>PARSE Health <br><small class="roles"> Author </small>  </li>
+</ul>
+</div>
+
+
+
+  </div>
 </div>
 
 
       <footer><div class="copyright">
-  <p>Developed by Xuan Wang, Layla Parast, Ming Yang, Lu Tian, Tianxi Cai,  PARSE LTD.</p>
+  <p></p>
+<p>Developed by Xuan Wang, Layla Parast, Lu Tian, Ming Yang, CELEHS Lab, PARSE Health.</p>
 </div>
 
 <div class="pkgdown">
-  <p>Site built with <a href="https://pkgdown.r-lib.org/">pkgdown</a> 1.6.1.</p>
+  <p></p>
+<p>Site built with <a href="https://pkgdown.r-lib.org/" class="external-link">pkgdown</a> 2.1.1.</p>
 </div>
 
       </footer>
 </div>
 
-  
+
+
+
 
 
   </body>

@@ -1,10 +1,5 @@
-template:
-  params:
-    bootswatch: cosmo
-
 navbar:
   title: "OptimalSurrogate"
-  type: inverse
   left:
     - icon: "fa-home"
       href: index.html
@@ -16,6 +11,3 @@ navbar:
         href: articles/example2.html
     - text: "Reference"
       href: reference/index.html
-  right:
-    - text: "CELEHS Software"
-      href: https::/celehs.github.io
